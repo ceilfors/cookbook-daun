@@ -1,9 +1,9 @@
 property :destination, String, name_property: true
 property :repository, String
 
-default_action :update
+default_action :checkout
 
-action :update do
+action :checkout do
   daun = ::Daun::RuggedDaun.new(destination)
   unless ::File.foreach("#{destination}/.git/config").any?{ |l| l[repository] }
     converge_by("Initialize daun repository at #{destination}") do
