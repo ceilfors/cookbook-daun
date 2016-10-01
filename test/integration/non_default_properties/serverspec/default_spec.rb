@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe 'non_default_properties' do
-  describe file('/tmp/gq') do
-    it { should be_directory }
+  context 'git repository' do
+    subject { git('/tmp/gq') }
+    it { expect(subject).to exist }
+    it { expect(subject).to be_initialized }
+    it { expect(subject.config).to include 'remote.origin.url' => 'https://github.com/ceilfors/gq.git' }
   end
 
-  describe file('/tmp/gq/branches/master') do
-    it { should be_directory }
+  it 'checks out master branch' do
+    expect(file '/tmp/gq/branches/master').to be_directory
   end
 end
