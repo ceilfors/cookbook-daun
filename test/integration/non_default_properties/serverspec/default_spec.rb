@@ -6,6 +6,7 @@ describe 'non_default_properties' do
     it { expect(subject).to exist }
     it { expect(subject).to be_initialized }
     it { expect(subject.config).to include 'remote.origin.url' => 'https://github.com/ceilfors/gq.git' }
+    it { expect(subject.config).to include 'daun.tag.limit' => '3' }
   end
 
   it 'checks out master branch' do
