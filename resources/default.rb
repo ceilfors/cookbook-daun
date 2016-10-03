@@ -7,17 +7,17 @@ default_action :checkout
 action :checkout do
   daun = ::Daun::RuggedDaun.new(destination)
   unless ::File.foreach("#{destination}/.git/config").any?{ |l| l[repository] }
-    # TODO: how to show up to date?
     converge_by("Initialize daun repository at #{destination}") do
       daun.init repository
     end
   end
 
   config.each do |key, value|
-    # TODO: how to show up to date?
     @repository = ::Rugged::Repository.init_at(destination)
-    converge_by("Updating daun repository config '#{key}' to '#{value}'") do
-      @repository.config[key] = value
+    if @repository.config[key] != value.to_s
+      converge_by("Updating daun repository config '#{key}' to '#{value}'") do
+        @repository.config[key] = value
+      end
     end
   end
 
