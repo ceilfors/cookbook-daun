@@ -15,13 +15,13 @@ action :checkout do
   config.each do |key, value|
     @repository = ::Rugged::Repository.init_at(destination)
     if @repository.config[key] != value.to_s
-      converge_by("Updating daun repository config '#{key}' to '#{value}'") do
+      converge_by("Update daun repository config '#{key}' to '#{value}'") do
         @repository.config[key] = value
       end
     end
   end
 
-  converge_by("Check out out daun repository at #{destination}") do
+  converge_by("Checkout daun repository at #{destination}") do
     puts
     daun.checkout
   end
