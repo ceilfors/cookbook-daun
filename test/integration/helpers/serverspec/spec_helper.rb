@@ -9,30 +9,9 @@ else
 end
 
 base_path = File.dirname(__FILE__)
-Dir["#{base_path}/*_examples.rb"].each do |ex|
-  require_relative ex
+Dir["#{base_path}/*_examples.rb"].each do |shared_example|
+  require_relative shared_example
 end
-
-module Serverspec::Helper
-  module Type
-    def git(location)
-      Serverspec::Type::Git.new(location)
-    end
-  end
-end
-
-module Serverspec::Type
-  class Git < Base
-    def exists?
-      ::File.exist? @name
-    end
-
-    def initialized?
-      ::File.exist? "#{@name}/.git"
-    end
-
-    def config
-      Rugged::Repository.init_at(@name).config.to_hash
-    end
-  end
+Dir["#{base_path}/support/**/*.rb"].each do |servserspec_support|
+  require_relative servserspec_support
 end
