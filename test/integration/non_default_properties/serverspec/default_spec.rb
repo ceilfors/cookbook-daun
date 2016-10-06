@@ -14,4 +14,8 @@ describe 'non_default_properties' do
   it 'checks out master branch' do
     expect(file '/tmp/gq/branches/master').to be_directory
   end
+
+  it 'checks out tags' do
+    expect(file '/tmp/gq/tags').to be_directory
+  end
 end
