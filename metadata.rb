@@ -1,15 +1,15 @@
 name 'daun'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'all_rights'
-description 'Installs/Configures daun'
-long_description 'Installs/Configures daun'
+maintainer 'Wisen Tanasa'
+maintainer_email 'wisen@ceilfors.com'
+license 'Apache 2.0'
+description 'Provides daun installation and resources'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.0'
+issues_url 'https://github.com/ceilfors/cookbook-daun/issues'
+source_url 'https://github.com/ceilfors/cookbook-daun'
 
-# If you upload to Supermarket you should set this so your cookbook
-# gets a `View Issues` link
-# issues_url 'https://github.com/<insert_org_here>/daun/issues' if respond_to?(:issues_url)
+%w(redhat centos).each do |os|
+  supports os
+end
 
-# If you upload to Supermarket you should set this so your cookbook
-# gets a `View Source` link
-# source_url 'https://github.com/<insert_org_here>/daun' if respond_to?(:source_url)
+chef_version '>= 12.5'
