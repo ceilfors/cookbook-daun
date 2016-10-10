@@ -14,9 +14,11 @@ end
 
 chef_gem 'rugged' do
   compile_time true
+  action :install
 end
 chef_gem 'daun' do
   compile_time true
+  action :install
 end
 
 require 'daun'
