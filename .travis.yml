@@ -21,6 +21,7 @@ services: docker
 env:
   matrix:
   - INSTANCE=non-default-properties-centos-7
+  - INSTANCE=non-default-properties-opensuse-132
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
