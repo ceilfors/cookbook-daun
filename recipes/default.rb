@@ -5,7 +5,8 @@
   package_resource.run_action(:install)
 end
 
-%w(openssl-devel libssh2-devel).each do |optional_package|
+openssl_package = value_for_platform_family('suse' => 'libopenssl-devel', 'default' => 'openssl-devel')
+%W(#{openssl_package} libssh2-devel).each do |optional_package|
   package_resource = package optional_package do
     action :nothing
   end
