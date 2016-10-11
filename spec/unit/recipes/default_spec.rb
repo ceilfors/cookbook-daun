@@ -9,10 +9,9 @@ require 'spec_helper'
 module Kernel
   alias :old_require :require
   def require(path)
-    old_require(path) unless ['daun', 'rugged'].include?(path)
+    old_require(path) unless %w(daun rugged).include?(path)
   end
 end
-
 
 describe 'daun::default' do
   context 'When all attributes are default, on an unspecified platform' do
