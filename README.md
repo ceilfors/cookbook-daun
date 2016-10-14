@@ -1,6 +1,9 @@
-# daun
+# daun cookbook
 
-TODO: Enter the cookbook description here.
+[![Build Status](https://travis-ci.org/ceilfors/cookbook-daun.svg?branch=master)](https://travis-ci.org/ceilfors/cookbook-daun)
+[![Cookbook Version](https://img.shields.io/cookbook/v/daun.svg)](https://supermarket.chef.io/cookbooks/daun)
+
+A chef library cookbook that provides a recipe to help install daun rubygem and resources to use daun.
 
 # Copyright
 
