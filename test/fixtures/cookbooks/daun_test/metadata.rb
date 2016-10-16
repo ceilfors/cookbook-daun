@@ -6,3 +6,4 @@ description      'A wrapper cookbook for use in testing'
 version          '0.1.0'
 
 depends          'daun'
+depends          'apt', '~> 4.0.2'
