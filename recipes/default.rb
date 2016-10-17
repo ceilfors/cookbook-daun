@@ -1,4 +1,8 @@
-%w(cmake pkg-config gcc).each do |required_package|
+pkgconfig_package = value_for_platform_family(
+  'rhel' => 'pkgconfig',
+  'default' => 'pkg-config'
+)
+%W(cmake #{pkgconfig_package} gcc).each do |required_package|
   package_resource = package required_package do
     action :nothing
   end
