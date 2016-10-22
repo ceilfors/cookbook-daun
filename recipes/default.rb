@@ -25,14 +25,10 @@ ssh_package = value_for_platform_family(
   package_resource.run_action(:install)
 end
 
-chef_gem 'rugged' do
-  compile_time true
-  action :install
-end
 chef_gem 'daun' do
   compile_time true
   action :install
 end
 
 require 'daun'
-require 'rugged'
+

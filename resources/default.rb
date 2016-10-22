@@ -13,10 +13,9 @@ action :checkout do
   end
 
   config.each do |key, value|
-    @repository = ::Rugged::Repository.init_at(destination)
-    next if @repository.config[key] == value.to_s
+    next if daun.config[key] == value.to_s
     converge_by("Update daun repository config '#{key}' to '#{value}'") do
-      @repository.config[key] = value
+      daun.config[key] = value
     end
   end
 
