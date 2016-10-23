@@ -31,4 +31,3 @@ chef_gem 'daun' do
 end
 
 require 'daun'
-
