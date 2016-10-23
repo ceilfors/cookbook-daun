@@ -8,7 +8,7 @@ version '0.1.0'
 issues_url 'https://github.com/ceilfors/cookbook-daun/issues'
 source_url 'https://github.com/ceilfors/cookbook-daun'
 
-%w(redhat centos opensuse opensuseleap).each do |os|
+%w(ubuntu debian redhat centos suse opensuse opensuseleap).each do |os|
   supports os
 end
 
